@@ -5,7 +5,7 @@ body{
     align-content: center;
 }
 /* Index Page Style */
-.homepageBackground{
+#homepageBackground{
     background-color: #F8D3D3;
     border-radius: 38px;
     text-align: center;
@@ -60,6 +60,7 @@ margin-bottom: 16px;
     border:none;
     padding:15px;
     font-size: 35px;
+    cursor: pointer;
 }
 .twoPlayer{
     background-color: white;
@@ -67,4 +68,74 @@ margin-bottom: 16px;
     border:none;
     padding:15px;
     font-size: 35px;
+    cursor: pointer;
+}
+
+/* Start Page */
+#startPage{
+    display:none;
+}
+#startPage{
+    background-color: #F8D3D3;
+    border-radius: 38px;
+    text-align: center;
+    width: 76vw;
+    height: 96vh;
+    /* width: 100%;
+    height:100vh; */
+    /* display:flex;
+    justify-content: center;
+    align-items: center; */
+    margin: 10px;
+}
+
+.startSection{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+.start{
+    background-color: white;
+    border-radius:38px;
+    border:none;
+    font-size: 100px;
+    padding:20px;
+    width: 100%;
+    
+}
+
+/* Instruction Section */
+.instructionSection{
+    background-color:#FAE3E3;
+    border-radius: 38px;
+    width: 20%;
+    height: 96vh;
+    margin-top: 11px;
+    text-align:center;
+    display:none;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: flex-start; */
+}
+.instructionHeading{
+    /* text-align:center; */
+    background-color: white;
+    border-radius:38px;
+    padding:10px;
+    font-size:18px;
+    margin:10px;
+}
+.instructionDiv{
+    background-color:white;
+    /* font-size: 20px; */
+    border-radius: 38px;
+    /* padding:50px; */
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.instructionText{
+    font-size: 20px;
 }
