@@ -36,5 +36,46 @@ twoPlayerBtn.addEventListener("click", (e) =>{
         
      }
 });
-//2. Start Button & Card Div
+
+//2. Instruction Section click to remove & add rules container
+let instructionHeading1 = document.querySelector(".instructionHeading1");
+
+function toggleRules () { 
+    
+    let instructionText = document.querySelector(".instructionHeading1").nextElementSibling;
+    instructionText.classList.toggle("active");
+    if (instructionText.classList.contains("active")) {
+        instructionText.style.display = "flex";
+        instructionText.style.alignContent ="center";
+        instructionText.style.flexDirection ="column";
+        instructionText.style.margin = "10px";
+    } else {
+        instructionText.style.display = "none";
+    }
+};
+
+// Displaying the time & Show Section in a function
+const timeScoreSection = () => {
+        // Show the Time & Score
+    document.querySelector(".timeSection").style.display = "flex";
+    document.querySelector(".timeSection").style.flexDirection = "column";
+    document.querySelector(".timeSection").style.justifyContent = "space-between";
+    // Remove the instruction page screen from the start page
+    document.querySelector(".instructionSection").style.display = "none";
+}
+
+
+
+//3. Start Button & Card Div
 let startButton = document.querySelector(".start");
+startButton.addEventListener("click", (e)=>{
+    e.preventDefault();
+
+    // hiding start buttons 
+    startButton.style.display = "none";
+    //invoke time & Scorefunction
+    timeScoreSection();
+
+    // toggle Instruction Rules
+    instructionHeading1.addEventListener("click", toggleRules )
+})
