@@ -1,9 +1,9 @@
 let playerOneName = "";
 let playerTwoName = "";
+// player container where everything will happen
+// grab the player
+let playerOneCardSection=document.querySelector(".playerOneCardSection");
 
-// score & time slecting
-const time = document.querySelector(".timeHeading");
-const score = document.querySelector(".scoreHeading");
 //1. Grab two player button to initiate the prompt a then the start button 
 let twoPlayerBtn = document.querySelector(".twoPlayer");
 twoPlayerBtn.addEventListener("click", (e) =>{
@@ -74,8 +74,11 @@ const timeScoreSection = () => {
     // Remove the instruction page screen from the start page
     document.querySelector(".instructionSection").style.display = "none";
 }
+
+document.addEventListener('DOMContentLoaded', () => {
 // Card Div & Section
-//create object array with images I saved
+// create object array with images I saved
+
  const cardArray = [
     {   name: "greenStar",
         img: "images/img-1.png",
@@ -129,132 +132,135 @@ const timeScoreSection = () => {
 
 //randomize the cardArray
 cardArray.sort(()=> 0.5 - Math.random())
-console.log(cardArray); 
+// console.log(cardArray); 
 
-// grab the player
-let playerOneCardSection=document.querySelector(".playerOneCardSection");
-// card chosen
-// let cardsChosen = [];
-// let cardsChosenId = []
-// let cardsWon = [];
-// let card = document.querySelector(".card");
-// console.log(card);
+
 //create the player cards element and append to the section
 // media query for the card size
+ let playerOneCardSection = document.querySelector(".playerOneCardSection");
+    let cardHandler = document.createElement("div");
+    cardHandler.className = "cardHandler";
 const createBoard = () => {
+   
+    let card = document.querySelector(".card");
     for(let i=0; i<cardArray.length; i++) {
         // console.log(cardArray[i]);
         const card= document.createElement("div");
         card.setAttribute("class", "card");
+        // card.setAttribute("id", i)
         const cardBack = document.createElement("div");
         const cardFront = document.createElement("div");
         cardFront.setAttribute("class", "card-front card-face");
+        cardFront.setAttribute("id", i);
          const cardImg = document.createElement("img");
-         cardImg.setAttribute("class","cardImg"); cardImg.setAttribute("data-id", i);
+         cardImg.setAttribute("class","cardImg"); 
+         cardImg.setAttribute("data-id", i);
          cardImg.setAttribute("src", cardArray[i].img);
+         cardImg.setAttribute("value", i);
          cardBack.setAttribute("class", "card-back card-face");
-            // card.setAttribute("data-id", i);
+            card.setAttribute("data-id", i);
             cardBack.appendChild(cardImg);
-            card.appendChild(cardBack); 
             card.appendChild(cardFront);
-            let playerOneCardSection = document.querySelector(".playerOneCardSection");
-            playerOneCardSection.appendChild(card);
-            card.addEventListener("click",flipCard);
-            // console.log(card);
+            card.appendChild(cardBack); 
+            
+            cardHandler.appendChild(card);
+            
+        } 
+         
+        playerOneCardSection.appendChild(cardHandler);
+        
+    }
+
+       createBoard();  
+       let card = document.querySelectorAll(".card");
+       console.log(card);
+     let cardOne, cardTwo;
+// flipcard function
+    const flipCard = (e) => {
+    
+        let grabCards = e.target;
+        console.log(grabCards); 
+        grabCards.classList.toggle("flip");
+    //  grabCards.forEach((card) => {
+    //     card.classList.toggle("flip");
+    //     })
+    }
+        
+    
+  
+    cardHandler.addEventListener("click", (e)=>{
+        flipCard(e);
+    });// console.log(card);  
+     
+});
+
+// Player One score & time slecting
+// console.log(playerOneTime);
+let playerOneScore = document.querySelector("#playerOneMatchScore");
+let time = document.querySelector("#TimeRemaining");
+// console.log(time);
+class Game {
+    constructor(playerOne,playerTwo){
+         this.playerOne  = "";
+         this.playerTwo = "";
+         // decrease by 1/ time countdown
+         this.timer = 60;
+         this.score =0;
+    }
+    //methods
+    
+    timeDown (){
+        time.innerHTML =this.timer;  
+        this.timer --;
+        console.log(`Timer is decreasing! Time is now ${this.timer}`);
+        
+    }
+    scoreUp(){
+        playerOneScore.innerHTML = this.score;
+        this.score++;
+        console.log(`${playerOneName} is scoring. Score is now!`)
     }
 }
-// flipcard function
-let cardOne, cardTwo;
-const flipCard = (e) => {
-    let clickedCard = e.target;
-    // console.log(e.target);
-    clickedCard.classList.toggle("flipped");
-    let grabCards = document.querySelectorAll(".card");
-    
-      }
-    // const cards= document.querySelectorAll(".card")
-    // cards.forEach(card => {
-    //     console.log(card);
-    // })
-    // const cardId = cardImg.getAttribute("data-id");
-    // console.log("clicked", cardImg);
+let playerOne = new Game("PlayerOne Turn");
+//click the start button will start the timer
 
-createBoard();
-
-//check match for the cards
-// const checkForMatch = () => {
-//     const cards = document.querySelectorAll(".card");
-//     const optionOneId = cardsChosenId[0]
-//     const optionTwoId = cardsChosenId[1]
-//     // condition statement if they are matched on correct
-//     if(cardsChosenId[0] === cardsChosenId[1]){
-//         alert(`You found a match! ${playerOneName}`);
-//         cards[optionOneId].style.display = "none";
-//         cards[optionTwoId].style.display = "none";
-//         cardsWon.push(cardsChosen);
-//     } else{
-//         cards[optionOneId].setAttribute("class", "card");
-//         cards[optionTwoId].setAttribute("class", "card");
-//         alert('Sorry, try again');
-//     }
-//     cardsChosen=[]
-//     cardsChosenId = []
-//     score.textContent = cardsWon.length;
-//     if  (cardsWon.length === cardArray.length/2) {
-//         score.textContent = 'Congratulations! You found them all!';
-//     }
-// }
-
-
-
-
-// is not generate tableData
-// const buildTable = () => {
-//     let emptyTable = document.createElement("table");
-//     const table = () => {  
-//      let tableRow =document.createElement("tr");
-//      let tableData = document.createElement("td","td");
-     
-//      tableData.innerHTML = "This is a table Data";
-//      tableRow.appendChild(tableData); 
-
-//      emptyTable.appendChild(tableRow);
-//     //  console.log(emptyTable);
-//      document.querySelector(".playerOneCardSection").appendChild(emptyTable);
-//      emptyTable.style.border="5px solid blue";
-//      tableRow.style.border="2px solid red";
-//       tableData.style.border=" 2px solid green";
-//       emptyTable.style.display="flex";
-//       emptyTable.style.flexDirection ="row";
-//       emptyTable.style.flexWrap = "wrap";
-//       // set the width for the table
-//     }
-//      for(let i = 0; i<8; i++){
-//         table();
-//         let tableData = document.createElement("td");
-//         tableData.innerHTML = "This is a table Data";
-//         let tableRow =document.createElement("tr");
-//     //    let getRows = document.querySelectorAll("tr")
-//        tableRow.appendChild(tableData); 
-//     //    emptyTable.appendChild(tableRow);
-//        console.log(emptyTable);
-//      }
-// }
-// for(let k=0; k<4;k++){
-//  buildTable();
-// }
+// grab the players overlay/ text
+let playerOneOverlay = document.querySelector(".playerOneOverlay");
+let playerOneText = document.querySelector(".playerOneText");
+let nextplayerTurn = document.querySelector(".playerTurn");
 
 // 3. Start Button & Card Div
 let startButton = document.querySelector(".start");
-startButton.addEventListener("click", (e)=>{
-    e.preventDefault();
+startButton.addEventListener("click", (event)=>{
+    event.preventDefault();
 
     // hiding start buttons 
     startButton.style.display = "none";
-    
+    // Player One Game Section
     //invoke time & Scorefunction to display
     timeScoreSection();
 
     // toggle Instruction Rules
-    instructionHeading1.addEventListener("click", toggleRules )
+    instructionHeading1.addEventListener("click", toggleRules );
+
+    // time interval 
+    const timeCountDown = () => {
+        playerOne.timeDown();
+        if(playerOne.timer < 0){
+            console.log(playerOne.timer);
+            // alert("Timer is on zero! Player Two Turn!");
+            clearInterval(timingCounter);
+            // playerOneOverlay.classList.add("opacityPlayerCard");
+            // playerOneOverlay.style.display = "flex";
+            // playerOneOverlay.style.justifyContent = "center";
+            // playerOneOverlay.style.flexDirection = "column";
+            // alert(`${playerOneName}'s Turn is Over! Click Okay to Start ${playerTwoName}'s Turn`)
+            // playerOneText.innerHTML =`${playerOneName}  Turn is Over`;
+            // nextplayerTurn.innerHTML =` Click to Start ${playerTwoName}'s Turn`
+            // display the playerOneOverlay to show the turn is over 
+
+            } 
+    }
+    let timingCounter = setInterval(timeCountDown,1000);
 })
+

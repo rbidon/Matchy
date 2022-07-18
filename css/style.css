@@ -1,6 +1,6 @@
-*{
+* {
     box-sizing: border-box;
-}
+  }
 body{
     margin: auto 0;
     display: flex;
@@ -156,60 +156,149 @@ margin-bottom: 16px;
     display:none;
 }
 .playerOneCardSection{
-    border:thick solid black;
+    border:thick solid rgb(72, 233, 88);
     border-radius: 38px;
     text-align: center;
-    width: 83vw;
-    height: 90vh;
-    display:flex;
-    flex-wrap: wrap;
-    align-content: space-around;
-    justify-content: space-evenly
+    width: 87vw;
+    height: 96vh;
+    /* width: 83vw;
+    height: 90vh; */
+    
+    /* flex-direction: column; */
+    /* transform: translate(-50%, -50%); */
+}
+
+.opacityPlayerCard{
+    opacity: 0.5;
+    /* opacity :0.5;  */
+
+   
+}
+.playerOneOverlay{
+     /* display:flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column; */
+    width: 87vw;
+    height: 96vh;
+    border-radius: 38px;
+    
+}
+/* Players One Overlay */
+/* .playerOneOverlay{
+    /* background-color:rgb(62, 62, 62);
+    width: 87vw;
+    height: 96vh;
+    border-radius: 38px;
+    opacity: 0.5; */
+   
+    
+
+.playerOneText{
+    color:black;
+    text-align:center;
+    background-color: white;
+    border-radius:38px;
+    border:none;
+    font-size: 100px;
+    padding:20px;
+    width: 100%;
+}
+.playerTurn{
+    text-align: center;
+    color:black;
+    background-color: white;
+    border-radius:38px;
+    width: 50%;
+    font-size: 30px;
+    margin-top: -47px;
+    margin-left: 50px;
+    margin-right: -397px;
 }
 /* Card Styling when toggle */
-.card{
+.cardHandler{
     display:flex;
     flex-wrap: wrap;
     align-content: space-around;
-    justify-content: space-evenly
-}
-.card-back{
-    border-radius: 31px;
-    background-color: white;
-    width: 182px;
-    /* width: 234px; */
-    height: 216px;
-    /* width: 206px;
-    /* width: 234px; */
-    /* height: 264px; */
-    /* margin: 10px; */
-    display:flex;
-    align-content: space-around;
     justify-content: space-evenly;
-    align-items: center;
+    width: 87vw;
+    height: 96vh;
+    position: absolute;
+}
+.card{
+    transform-style: preserve-3d;
+    transition: all 0.8s ease;
+    cursor:pointer;
+    position:relative;
 }
 .card-front{
     border-radius: 31px;
     background-color: white;
-    width: 182px;
+    /* width: 182px;
     /* width: 234px; */
-    height: 216px;
-    display:flex;
+    /* height: 216px; */
+    width: 143px;
+    /* width: 234px; */
+    height: 158px;
+    /* display:flex;
     justify-content:center;
-    align-items: center;
+    align-items: center; */
+    position: absolute;
+    backface-visibility: hidden;
+    /* transform:rotateX(180deg); */
+     
+    
 }
-.cardImg {
-    width: 122px;
+.card-back{
+    border-radius: 31px;
+    background-color: white;
+    /* width: 182px;
     /* width: 234px; */
-    height: 119px;
+    /* height: 216px;  */
+    /* width: 206px;
+    /* width: 234px; */
+    /* height: 264px; */
+    /* margin: 10px; */
+    width: 143px;
+    /* width: 234px; */
+    height: 158px;
+    display:flex;
+    align-content: space-around;
+    justify-content: space-evenly;
+    align-items: center;
+    backface-visibility: hidden;
+    /* transform: rotateY(90deg); */
+    
 }
 
-.card.visible .card-back{
+/* .card-front, .card-back{
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+  } */
+
+.cardImg {
+    /* width: 122px;
+    /* width: 234px; */
+    /* height: 119px; */
+    width: 98px;
+    /* width: 234px; */
+    height: 102px;
+}
+   
+ .flip{
+    transform: rotateY(180deg);
+    
+}
+
+
+/* .card.visible .card-back{
     transform: rotateY(-180deg);
 }
 .card.visible .card-front{
     transform: rotateY(0);
-}
+} */
 /* Time & Score Section */
 .timeSection {
     background-color:#FAE3E3;
@@ -256,3 +345,4 @@ margin-bottom: 16px;
     margin: 10px; */
     display:none;
 }
+
