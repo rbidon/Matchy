@@ -146,6 +146,7 @@ margin-bottom: 16px;
     align-content: center;
     flex-direction: column;
     margin: 10px;
+    height: 389px;
 }
 
 .instructionText{

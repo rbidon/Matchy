@@ -112,8 +112,6 @@ class Game {
 let playerOne = new Game("PlayerOne");
 let playerTwo = new Game("PlayerTwo");
 //click the start button will start the timer
-
-
  // Generated Cards for Player 1
  const cardGame = () => {
  
@@ -210,7 +208,7 @@ let playerTwo = new Game("PlayerTwo");
                 card.appendChild(cardBack); 
                  card.addEventListener("click", (e)=>{
             flipCard(e);
-        });// console.log(card);  
+        }); 
                 cardHandler.appendChild(card);
                 
             } 
@@ -222,23 +220,23 @@ let playerTwo = new Game("PlayerTwo");
     // check for match function 
        const checkForMatch =() => {
         const cards = document.querySelectorAll(".card");
+        // console.log(card); 
         const cardsFront = document.querySelectorAll(".card-front");
         const cardsBack = document.querySelectorAll(".card-back");
-        console.log(cards);
         const selectedCardOneId = cardsChosenId[0];
         const selectedCardTwoId = cardsChosenId[1];
         
         // if statement that will check the id of the cards match
         if(cardsChosen[0] === cardsChosen[1]) {
-            console.log(cards[selectedCardOneId]);
-            console.log(cards[selectedCardTwoId]);
+            // console.log(cards[selectedCardOneId]);
+            // console.log(cards[selectedCardTwoId]);
             cards[selectedCardOneId].classList.add('none');
             
             cards[selectedCardTwoId].classList.add('none');
             cards[selectedCardOneId].removeEventListener('click', flipCard)
             cards[selectedCardTwoId].removeEventListener('click', flipCard)
             cardsWon.push(cardsChosen)
-            console.log("Storaging the won card", cardsWon);
+            // console.log("Storaging the won card", cardsWon);
             alert('You found a match')
             playerOne.scoreUp()
             // playerTwo.scoreUp();
@@ -254,9 +252,9 @@ let playerTwo = new Game("PlayerTwo");
                 
             }
             cardsChosen = []
-            console.log("chosen cards for the game", cardsChosen);
+            // console.log("chosen cards for the game", cardsChosen);
             cardsChosenId = []
-            console.log("chosen card id", cardsChosenId);
+            // console.log("chosen card id", cardsChosenId);
        }      
        
     
@@ -264,14 +262,14 @@ let playerTwo = new Game("PlayerTwo");
         const flipCard = (e) => {
         //flip just the front 
         let grabFront = e.target;
-        console.log(grabFront);
+        // console.log(grabFront);
         let cardId = e.target.id;
-        console.log(cardId);
+        // console.log(cardId);
         grabFront.classList.toggle("flip")
         cardsChosen.push(cardArray[cardId].name)
-         console.log("Storaging the Name",cardsChosen)
+        //  console.log("Storaging the Name",cardsChosen)
          cardsChosenId.push(cardId)
-         console.log("Storaging the Id in and array", cardsChosenId);
+        //  console.log("Storaging the Id in and array", cardsChosenId);
         if (cardsChosen.length ===2) {
             setTimeout(checkForMatch, 500)
         }
@@ -312,7 +310,7 @@ startButton.addEventListener("click", (event)=>{
         playerOne.timeDown();
         if(playerOne.timer <= 0){
             time.innerHTML = 0;
-            console.log(playerOne.timer);
+            // console.log(playerOne.timer);
             // alert("Timer is on zero! Player Two Turn!");
             clearInterval(timingCounter); 
             // display the playerOneOverlay to show the turn is over 
@@ -455,16 +453,14 @@ let scoringBtn = document.querySelector(".scoringBoardBtn");
             
             // if statement that will check the id of the cards match
             if(cardsChosen[0] === cardsChosen[1]) {
-                console.log(cards2[selectedCardOneId2]);
-                console.log(cards2[selectedCardTwoId2]);
-                // cards2[selectedCardOneId2].setAttribute("class", "none");
-                // cards2[selectedCardTwoId2].setAttribute("class", "none");
+                // console.log(cards2[selectedCardOneId2]);
+                // console.log(cards2[selectedCardTwoId2])
                 cards2[selectedCardOneId2].classList.add('none2');
                 cards2[selectedCardTwoId2].classList.add('none2');
                 cards2[selectedCardOneId2].removeEventListener('click', flipCard)
                 cards2[selectedCardTwoId2].removeEventListener('click', flipCard)
                 cardsWon.push(cardsChosen)
-                console.log("Storaging the won card", cardsWon);
+                // console.log("Storaging the won card", cardsWon);
                 alert('You found a match')
                 // playerOne.scoreUp()
                 playerTwo.scoreUp();
@@ -489,14 +485,14 @@ let scoringBtn = document.querySelector(".scoringBoardBtn");
             const flipCard = (e) => {
             //flip just the front 
             let grabFront = e.target;
-            console.log(grabFront);
+            // console.log(grabFront);
             let cardId = e.target.id;
-            console.log(cardId);
+            // console.log(cardId);
             grabFront.classList.toggle("flip2")
             cardsChosen.push(cardArray[cardId].name)
-             console.log("Storaging the Name",cardsChosen)
+            //  console.log("Storaging the Name",cardsChosen)
              cardsChosenId.push(cardId)
-             console.log("Storaging the Id in and array", cardsChosenId);
+            //  console.log("Storaging the Id in and array", cardsChosenId);
             if (cardsChosen.length ===2) {
                 setTimeout(checkForMatch, 500)
             }
@@ -530,7 +526,7 @@ const playerTwoTurn = ()=> {
          playerTwo.timeDown();
         if(playerTwo.timer <= 0){
             time.innerHTML = 0;
-            console.log(playerTwo.timer);
+            // console.log(playerTwo.timer);
             // alert("Timer is on zero! Player Two Turn!");
             clearInterval(timingCounter2);
 
@@ -544,7 +540,7 @@ const playerTwoTurn = ()=> {
             scoringBtn.style.display = "block";
             scoringBtn.style.textAlign = "center";
             scoringBtn.innerHTML = `Click to See the Winner!`
-            
+            console.log(` The time has ended. Player One Score is ${playerTwo.score}`)
         } 
   }     
         let timingCounter2 = setInterval(timeCountDownPlayerTwo,1000);
@@ -558,18 +554,22 @@ nextPlayerTurn.addEventListener("click", playerTwoTurn);
 // Scoring Function
 const scoringBoard = () => {
     cardHandler.style.display = "none";
+    cardHandler2.style.display = "none";
     playerOneOverlay.style.display = "none";
     nextPlayerTurn.style.display ="none";
     scoringBtn.style.display = "none";
+    document.querySelector(".timeSection").style.display = "none";
     if(playerOne.score > playerTwo.score){
         alert(`${playerOneName} has won with a score of ${playerOne.score} over ${playerTwoName}'s score of ${playerTwo.score} `);
     } else if( playerTwo.score > playerOne.score){
         alert(`${playerTwoName} has won with a score of ${playerTwo.score} over ${playerOneName}'s score of ${playerOne.score}`);
     } else if(playerTwo.score === playerOne.score){
         alert(`${playerOneName} & ${playerTwoName} has tied with a score of ${playerTwo.score}. Congrats Winner!`);
+       
     }
 }
 
 scoringBtn.addEventListener("click", scoringBoard);
 
 /// reset button 
+//use  window.location.reload()
