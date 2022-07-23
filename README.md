@@ -1,11 +1,14 @@
 # Matchy Game
-## About
+## Game Description
 Matchy is a One Player/ Two Player Option Matching Game that allows the player/player to inpput their name, choose their level of difficulty. One Player Option you'll be trying to match all the cards before the timer ends. In the Two Players Option you'll be trying to earn an higher score over your opponent. The game will also indicate a winner or loser at the end. 
 ## Wireframe
-<img src ="images/readMeImages/WelcomePage.png" height="300px" width="450px">;
-<img src ="images/readMeImages/PromptPage.png" height="300px" width="450px">;
-<img src ="images/readMeImages/startPage.png" height="300px" width="450px">;
-<img src ="images/readMeImages/GamePage.png" height="300px" width="450px">;
+<p align="center">
+<img src ="images/readMeImages/WelcomePage.png" height="300px" width="450px">
+<img src ="images/readMeImages/PromptPage.png" height="300px" width="450px">
+<img src ="images/readMeImages/startPage.png" height="300px" width="450px">
+<img src ="images/readMeImages/GamePage.png" height="300px" width="450px">
+</p>
+
 ## User Stories
 * User/ Users will be greeted by the Welcome Page.
 * To Start the prompts user will click on either One Player/ Two Players.
