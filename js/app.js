@@ -3,12 +3,17 @@ let playerTwoName = "";
 // player container where everything will happen
 // grab the player
 let playerOneCardSection=document.querySelector(".playerOneCardSection");
+/////////// PLAYER ONE GAME OPTION /////////////
 
+
+
+// //////////////PLAYER TWO OPTION GAME ////////////////////
 //1. Grab two player button to initiate the prompt a then the start button 
 let twoPlayerBtn = document.querySelector(".twoPlayer");
 twoPlayerBtn.addEventListener("click", (e) =>{
     e.preventDefault();
     alert("Welcome to Matchy!");
+    alert(`You have selected the Two Players Option.`);
     // Prompt for Player One Name
     while(playerOneName === ""){
         playerOneName = prompt("What is your name, Player One?");
@@ -38,6 +43,7 @@ twoPlayerBtn.addEventListener("click", (e) =>{
         document.querySelector(".instructionSection").style.justifyContent = "flex-start";
      } else{
          alert(`${playerOneName} & ${playerTwoName}. You didn't choose your difficulty. I guess you're not ready to play. Come back when you're ready.`) 
+         window.location.reset();
         }
     
 });
@@ -81,6 +87,7 @@ let playerOneScore = document.querySelector("#playerOneMatchScore");
 let time = document.querySelector("#TimeRemaining");
 let time2 = document.querySelector("#TimeRemaining2")
 // console.log(time);
+// Game Class  that storages the scoring & timeCountDown
 class Game {
     constructor(player){
          this.player  = player;
@@ -111,7 +118,8 @@ class Game {
 }
 let playerOne = new Game("PlayerOne");
 let playerTwo = new Game("PlayerTwo");
-//click the start button will start the timer
+
+
  // Generated Cards for Player 1
  const cardGame = () => {
  
@@ -291,6 +299,7 @@ let nextPlayerTurn = document.querySelector(".playerTurn");
  let cardHandler = document.querySelector(".cardHandler");
  
 // 3. Start Button for player one game
+//click the start button will start the timer
 const startButton = document.querySelector(".start");
 startButton.addEventListener("click", (event)=>{
     event.preventDefault();
@@ -507,7 +516,7 @@ let grabcardHandler = document.querySelector(".cardHandler");
 let cardHandler2 = document.querySelector(".cardHandler2");
 let cardsPlayerOne = document.querySelectorAll(".card")
   // playerTwo function// 
- // created a player 2 Class clled playerTwo
+ // created a player 2 Class calleed playerTwo
 const playerTwoTurn = ()=> {
     playerTwo.score= 0;
     cardGame1();
@@ -515,10 +524,18 @@ const playerTwoTurn = ()=> {
     nextPlayerTurn.style.display ="none";
     scoringBtn.style.display = "none";
     grabcardHandler.style.display = "none";
-    cardHandler2.style.display ="flex";
-    cardHandler2.style.flexWrap = "wrap";
-    cardHandler2.style.alignContent = "space-around";
-    cardHandler2.style.justifyContent = "space-evenly";
+    cardHandler2.style.display ="grid";
+    cardHandler2.style.justifyContent = "center";
+    cardHandler2.style.alignItems = "center";
+    cardHandler2.style.gridTemplateColumns ="1fr 1fr 1fr 1fr";
+    cardHandler2.style.gridTemplateRows = "1fr 1fr 1fr 1fr";
+    cardHandler2.style.alignContent = "space-evenly";
+    cardHandler2.style.justifyItems = "center";
+    
+    // cardHandler2.style.display ="flex";
+    // cardHandler2.style.flexWrap = "wrap";
+    // cardHandler2.style.alignContent = "space-around";
+    // cardHandler2.style.justifyContent = "space-evenly";
 
 // generate playerTwoTurn
     
@@ -550,7 +567,9 @@ const playerTwoTurn = ()=> {
 }
 nextPlayerTurn.addEventListener("click", playerTwoTurn);
 
-
+// grab gameOver Text & Reset Buttons
+let gameOverText = document.querySelector(".gameOverText");
+let ResetBtn = document.querySelector(".resetBtn");
 // Scoring Function
 const scoringBoard = () => {
     cardHandler.style.display = "none";
@@ -560,16 +579,30 @@ const scoringBoard = () => {
     scoringBtn.style.display = "none";
     document.querySelector(".timeSection").style.display = "none";
     if(playerOne.score > playerTwo.score){
-        alert(`${playerOneName} has won with a score of ${playerOne.score} over ${playerTwoName}'s score of ${playerTwo.score} `);
+        alert(` Congrats ${playerOneName}! Winning with a score of ${playerOne.score} over ${playerTwoName} score of ${playerTwo.score}`);
     } else if( playerTwo.score > playerOne.score){
-        alert(`${playerTwoName} has won with a score of ${playerTwo.score} over ${playerOneName}'s score of ${playerOne.score}`);
+        alert(` Congrats ${playerTwoName}! Winning with a score of ${playerTwo.score} over ${playerOneName} score of ${playerOne.score}`);
     } else if(playerTwo.score === playerOne.score){
-        alert(`${playerOneName} & ${playerTwoName} has tied with a score of ${playerTwo.score}. Congrats Winner!`);
+        alert(` Look like we have a tie! ${playerOneName} & ${playerTwoName} have tied with a score of ${playerTwo.score}. Congrats Winners!`);
        
     }
+    // display gameOver Section & Reset Button
+    // gameOverText.style.display = "block";
+    playerOneOverlay.style.display = "flex";
+    playerOneText.style.display ="none";
+    gameOverText.style.display ="inline-block";
+    gameOverText.style.textAlign = "center";
+    gameOverText.innerHTML =` Game Over `;
+        // reset button selection
+        ResetBtn.style.display = "block";
+        ResetBtn.style.textAlign = "center";
+        ResetBtn.innerHTML = `Reset`;
 }
 
 scoringBtn.addEventListener("click", scoringBoard);
 
 /// reset button 
-//use  window.location.reload()
+ResetBtn.addEventListener("click", () => {
+    // learned from document provided by Justin & researching
+  window.location.reload() 
+})

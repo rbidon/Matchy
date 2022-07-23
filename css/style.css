@@ -62,7 +62,13 @@ margin-bottom: 16px;
     font-size: 35px;
     cursor: pointer;
 }
-.onePlayer:hover:active{
+.onePlayer:hover{
+    background-color:rgb(195, 194, 194);
+    padding: 15px;
+     border-radius: 38px;
+    box-shadow: inset 0 0 8px #f9f8fc;
+}
+.onePlayer:active{
     background-color:rgb(195, 194, 194);
     padding: 15px;
      border-radius: 38px;
@@ -76,7 +82,13 @@ margin-bottom: 16px;
     font-size: 35px;
     cursor: pointer;
 }
-.twoPlayer:hover:active{
+.twoPlayer:hover{
+    background-color:rgb(195, 194, 194);
+    padding: 15px;
+    border-radius: 38px;
+    box-shadow: inset 0 0 8px #f9f8fc;
+}
+.twoPlayer:active{
     background-color:rgb(195, 194, 194);
     padding: 15px;
      border-radius: 38px;
@@ -112,8 +124,19 @@ margin-bottom: 16px;
     border:none;
     font-size: 100px;
     padding:20px;
-    width: 100%;
-    
+    width: 387px; 
+}
+.start:hover{
+    background-color:rgb(195, 194, 194);
+    padding: 15px;
+    border-radius: 38px;
+    box-shadow: inset 0 0 8px #f9f8fc;
+}
+.start:active{
+    background-color:rgb(195, 194, 194);
+    padding: 15px;
+    border-radius: 38px;
+    box-shadow: inset 0 0 8px #f9f8fc;
 }
 
 /* Instruction Section */
@@ -146,7 +169,7 @@ margin-bottom: 16px;
     align-content: center;
     flex-direction: column;
     margin: 10px;
-    height: 389px;
+    height: 524px;
 }
 
 .instructionText{
@@ -180,12 +203,6 @@ margin-bottom: 16px;
     /* flex-direction: column; */
     /* transform: translate(-50%, -50%); */
 }
-
-/* .opacityPlayerCard{
-    /* opacity: 0.5; */
-    /* opacity :0.5;  */
-
-   
 /* Players One Overlay */
 .playerOneOverlay{
      /* display:flex;
@@ -198,8 +215,6 @@ margin-bottom: 16px;
     display:none;
     
 }
-
-
 
 .playerOneText{
     color:black;
@@ -234,18 +249,75 @@ margin-bottom: 16px;
     display:none;
     text-align: center;
 }
+.scoringBoardBtn:hover{
+    background-color:rgb(195, 194, 194);
+    padding: 15px;
+    border-radius: 38px;
+    box-shadow: inset 0 0 8px #f9f8fc;
+}
+.scoringBoardBtn:active{
+    background-color:rgb(195, 194, 194);
+    padding: 15px;
+    border-radius: 38px;
+    box-shadow: inset 0 0 8px #f9f8fc;
+}
 #TimeRemaining{
     font-size:30px;
 }
 #playerOneMatchScore{
     font-size: 30px;
 }
+/* Game Over Text & Reset Button*/
+.gameOverText{
+    display:none;
+    color:black;
+    text-align:center;
+    background-color: white;
+    border-radius:38px;
+    border:none;
+    font-size: 100px;
+    padding:20px;
+    width: 100%;
+}
+.resetBtn{
+    display: none;
+    background-color:white;
+    border-radius:38px;
+    font-size:32px;
+    width: 40%;
+    margin-top: -55px;
+    margin-left: 350px;
+    color:black;
+    display:none;
+    text-align: center;
+}
+/* .resetBtn:hover{
+    background-color:rgb(195, 194, 194);
+    padding: 15px;
+    border-radius: 38px;
+    box-shadow: inset 0 0 8px #f9f8fc;
+} */
+.resetBtn:active{
+    background-color:rgb(195, 194, 194);
+    padding: 15px;
+    border-radius: 38px;
+    box-shadow: inset 0 0 8px #f9f8fc;
+}
+
+/* /// ask about styling cards properly */
 /* Card Styling when toggle */
 .cardHandler{
-    display:flex;
+    /* display:flex;
     flex-wrap: wrap;
     align-content: space-around;
-    justify-content: space-evenly;
+    justify-content: space-evenly; */
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    align-content: space-evenly;
+    justify-items: center;
     width: 87vw;
     height: 96vh;
     position: absolute;
@@ -413,6 +485,18 @@ margin-bottom: 16px;
     padding:10px;
     font-size:18px;
     margin:10px;
+}
+/* .instructionHeading1:hover{
+    background-color:rgb(195, 194, 194);
+    padding: 15px;
+    border-radius: 38px;
+    box-shadow: inset 0 0 8px #f9f8fc;
+} */
+.instructionHeading1:active{
+    background-color:rgb(195, 194, 194);
+    padding: 15px;
+    border-radius: 38px;
+    box-shadow: inset 0 0 8px #f9f8fc;
 }
 .instructionDiv1{
     background-color:white;
