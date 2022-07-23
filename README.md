@@ -9,6 +9,8 @@ Matchy is a One Player/ Two Player Option Matching Game that allows the player/p
 <img src ="images/readMeImages/GamePage.png" height="300px" width="450px">
 </p>
 
+* If you like to see more of my wireframe, click [here](https://www.figma.com/file/hnNus3wYFm4CGsplWfH2h3/Matchy-Game-Wireframe?node-id=0%3A1)
+
 ## User Stories
 * User/ Users will be greeted by the Welcome Page.
 * To Start the prompts user will click on either One Player/ Two Players.
