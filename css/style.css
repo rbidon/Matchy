@@ -249,12 +249,12 @@ margin-bottom: 16px;
     display:none;
     text-align: center;
 }
-.scoringBoardBtn:hover{
+/* .scoringBoardBtn:hover{
     background-color:rgb(195, 194, 194);
     padding: 15px;
     border-radius: 38px;
     box-shadow: inset 0 0 8px #f9f8fc;
-}
+} */
 .scoringBoardBtn:active{
     background-color:rgb(195, 194, 194);
     padding: 15px;

@@ -4,7 +4,39 @@ let playerTwoName = "";
 // grab the player
 let playerOneCardSection=document.querySelector(".playerOneCardSection");
 /////////// PLAYER ONE GAME OPTION /////////////
+let onePlayerBtn = document.querySelector(".onePlayer")
+onePlayerBtn.addEventListener("click", (e) => {
+ e.preventDefault();
+ alert("Welcome to Matchy!");
+ alert(`You have selected the One Player Option.`);
+ // prompt for one player name
+ while(playerOneName === ""){
+    playerOneName = prompt("What is your name, Player One?");
+}console.log(playerOneName);
+ // Choosing Difficulity: Easy Road/ Hard Road
+ let chooseDifficulty = ""; 
+ while(chooseDifficulty === ""){
+    chooseDifficulty = prompt(`Hello ${playerOneName} & ${playerTwoName}. Choose your Difficulty Easy Road or Hard Road?`)
+};
+ console.log(`Player have selected the ${chooseDifficulty}`);
+ // Player Select Difficulity
+ if(chooseDifficulty === "Easy Road" || chooseDifficulty === "Easy" || chooseDifficulty === "easy"){
+    // direct them to the start page for Easy Road
+    // Will display the change screen to the start button
+    document.querySelector("#homepageBackground").style.display = "none";
+    document.querySelector("#startPage").style.display = "flex";
+    document.querySelector("#startPage").style.justifyContent = "center";
+    document.querySelector("#startPage").style.alignItems ="center";
+    document.querySelector(".instructionSection").style.display = "flex";
+    document.querySelector(".instructionSection").style.flexDirection = "column";
+    document.querySelector(".instructionSection").style.justifyContent = "flex-start";
+ } else{
+     alert(`${playerOneName}, you didn't choose your difficulty. I guess you're not ready to play. Come back when you're ready.`) 
+     window.location.reset();
+    }
+});
 
+// Player One Button Direct them to player two button. Must create seperate div to hide & show
 
 
 // //////////////PLAYER TWO OPTION GAME ////////////////////
